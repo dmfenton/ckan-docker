@@ -1,0 +1,20 @@
+version: '2'
+services:
+  ckan:
+    container_name: ckan
+    build: ./
+    entrypoint: /docker-entrypoint.sh
+    depends_on:
+      - postgres
+      - solr
+    ports:
+       - "5000:5000"
+    environment:
+       DATABASE_URL: "postgresql://ckan:ckan@postgres:5432/ckan"
+       SOLR_URL: "http://solr:8983/solr/ckan"
+  postgres:
+    image: ckan/postgresql:latest
+  solr:
+    image: ckan/solr:latest
+  redis:
+    image: redis:latest

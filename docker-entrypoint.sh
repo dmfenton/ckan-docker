@@ -17,4 +17,3 @@ paster --plugin=ckanext-harvest harvester initdb --config=/etc/ckan/default/defa
 echo "starting server"
 
 exec paster serve /etc/ckan/default/default.ini
-

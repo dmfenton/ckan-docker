@@ -7,7 +7,7 @@ RUN apt-get update && \
     git-core \
 		build-essential
 
-RUN pip install virtualenv virtualenvwrapper
+RUN pip install virtualenv virtualenvwrapper requests
 
 RUN mkdir -p /usr/lib/ckan/default
 
@@ -28,6 +28,8 @@ RUN pip install -r /src/ckanext-harvest/pip-requirements.txt
 RUN pip install -e git+https://github.com/ckan/ckanext-dcat.git#egg=ckanext-dcat
 
 RUN pip install -r /src/ckanext-dcat/requirements.txt
+
+RUN pip install ckanext-geoview
 
 RUN mkdir -p /etc/ckan/default
 

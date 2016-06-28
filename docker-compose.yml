@@ -12,6 +12,22 @@ services:
     environment:
        DATABASE_URL: "postgresql://ckan:ckan@postgres:5432/ckan"
        SOLR_URL: "http://solr:8983/solr/ckan"
+  gather-consumer:
+    build: ./
+    command:
+      - paster
+      - --plugin=ckanext-harvest
+      - harvester
+      - gather_consumer
+      - --config=/etc/ckan/default/default.ini
+  fetch-consumer:
+    build: ./
+    command:
+      - paster
+      - --plugin=ckanext-harvest
+      - harvester
+      - fetch_consumer
+      - --config=/etc/ckan/default/default.ini
   postgres:
     image: ckan/postgresql:latest
   solr:

@@ -17,9 +17,11 @@ RUN virtualenv --no-site-packages /usr/lib/ckan/default
 
 RUN . /usr/lib/ckan/default/bin/activate
 
-RUN pip install -e 'git+https://github.com/ckan/ckan.git@ckan-2.5.2#egg=ckan'
+RUN pip install -e 'git+https://github.com/ckan/ckan.git@ckan-2.5.3#egg=ckan'
 
 RUN pip install -r /src/ckan/requirements.txt
+
+RUN pip install --upgrade bleach
 
 RUN pip install -e git+https://github.com/ckan/ckanext-harvest.git#egg=ckanext-harvest
 

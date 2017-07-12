@@ -31,6 +31,6 @@ services:
   postgres:
     image: ckan/postgresql:latest
   solr:
-    image: ckan/solr:latest
+    image: milafrerichs/ckan_solr
   redis:
     image: redis:latest
